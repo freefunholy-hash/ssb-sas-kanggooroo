@@ -1,0 +1,313 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   SSB Sas Kanggooroo — Sky Pitch (Simplified)
+   Blue background + white box surfaces + kangaroo logo, OKLCH
+   ============================================================ */
+
+/* ---------- Bundled fonts ---------- */
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DMSans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GeistMono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 100 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* ---------- Design tokens (light mode — blue field, primary surface) ---------- */
+:root {
+  /* Surfaces — blue page, white cards/boxes */
+  --background: 0.52 0.15 250;
+  --foreground: 0.99 0.005 240;
+
+  --card: 1 0 0;
+  --card-foreground: 0.22 0.02 250;
+
+  --popover: 1 0 0;
+  --popover-foreground: 0.22 0.02 250;
+
+  /* Primary — athletic blue (used inside white cards) */
+  --primary: 0.45 0.18 250;
+  --primary-foreground: 0.99 0.005 240;
+
+  /* Secondary — deep navy for footer / contrast blocks */
+  --secondary: 0.3 0.1 255;
+  --secondary-foreground: 0.96 0.01 240;
+
+  /* Muted — darker blue band for alternating sections */
+  --muted: 0.46 0.13 250;
+  --muted-foreground: 0.92 0.01 240;
+
+  /* Accent — pitch green (minimal: badges, mascot) */
+  --accent: 0.55 0.16 145;
+  --accent-foreground: 0.99 0.005 240;
+
+  /* Destructive — red card */
+  --destructive: 0.55 0.2 25;
+  --destructive-foreground: 0.99 0.005 240;
+
+  --success: 0.62 0.15 145;
+  --success-foreground: 0.99 0.005 240;
+
+  --warning: 0.78 0.15 75;
+  --warning-foreground: 0.25 0.05 75;
+
+  /* Lines & inputs (on white cards) */
+  --border: 0.9 0.01 240;
+  --input: 0.9 0.01 240;
+  --ring: 0.45 0.18 250;
+
+  /* Chart palette */
+  --chart-1: 0.45 0.18 250;
+  --chart-2: 0.55 0.16 145;
+  --chart-3: 0.62 0.15 75;
+  --chart-4: 0.3 0.1 255;
+  --chart-5: 0.55 0.2 25;
+
+  /* Sidebar (admin zone) */
+  --sidebar: 0.2 0.03 255;
+  --sidebar-foreground: 0.96 0.01 240;
+  --sidebar-primary: 0.55 0.16 145;
+  --sidebar-primary-foreground: 0.99 0.005 240;
+  --sidebar-accent: 0.3 0.1 255;
+  --sidebar-accent-foreground: 0.96 0.01 240;
+  --sidebar-border: 0.35 0.04 255;
+  --sidebar-ring: 0.55 0.16 145;
+
+  /* Radii */
+  --radius: 0.625rem;
+
+  /* Font families */
+  --font-display: "SpaceGrotesk", system-ui, sans-serif;
+  --font-body: "DMSans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "GeistMono", "JetBrains Mono", ui-monospace, monospace;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.45 0.18 250) 0%,
+    oklch(0.3 0.1 255) 100%
+  );
+  --gradient-sky: linear-gradient(
+    180deg,
+    oklch(0.55 0.15 250) 0%,
+    oklch(0.48 0.14 250) 100%
+  );
+  --gradient-subtle: linear-gradient(
+    180deg,
+    oklch(0.52 0.15 250) 0%,
+    oklch(0.46 0.13 250) 100%
+  );
+  --gradient-hero: radial-gradient(
+    120% 80% at 50% 0%,
+    oklch(0.58 0.15 250) 0%,
+    oklch(0.52 0.15 250) 55%,
+    oklch(0.48 0.14 250) 100%
+  );
+
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Dark mode — stadium night ---------- */
+.dark {
+  --background: 0.18 0.02 255;
+  --foreground: 0.96 0.01 240;
+
+  --card: 0.24 0.025 255;
+  --card-foreground: 0.96 0.01 240;
+
+  --popover: 0.24 0.025 255;
+  --popover-foreground: 0.96 0.01 240;
+
+  --primary: 0.62 0.16 250;
+  --primary-foreground: 0.18 0.02 255;
+
+  --secondary: 0.32 0.06 255;
+  --secondary-foreground: 0.96 0.01 240;
+
+  --muted: 0.22 0.02 255;
+  --muted-foreground: 0.72 0.015 240;
+
+  --accent: 0.62 0.15 145;
+  --accent-foreground: 0.18 0.02 255;
+
+  --destructive: 0.62 0.2 25;
+  --destructive-foreground: 0.99 0.005 240;
+
+  --success: 0.68 0.15 145;
+  --success-foreground: 0.18 0.02 255;
+
+  --warning: 0.8 0.15 75;
+  --warning-foreground: 0.25 0.05 75;
+
+  --border: 0.34 0.03 255;
+  --input: 0.34 0.03 255;
+  --ring: 0.62 0.16 250;
+
+  --chart-1: 0.62 0.16 250;
+  --chart-2: 0.62 0.15 145;
+  --chart-3: 0.8 0.15 75;
+  --chart-4: 0.55 0.1 255;
+  --chart-5: 0.62 0.2 25;
+
+  --sidebar: 0.14 0.02 255;
+  --sidebar-foreground: 0.96 0.01 240;
+  --sidebar-primary: 0.62 0.15 145;
+  --sidebar-primary-foreground: 0.18 0.02 255;
+  --sidebar-accent: 0.24 0.025 255;
+  --sidebar-accent-foreground: 0.96 0.01 240;
+  --sidebar-border: 0.28 0.025 255;
+  --sidebar-ring: 0.62 0.15 145;
+
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.62 0.16 250) 0%,
+    oklch(0.4 0.1 255) 100%
+  );
+  --gradient-sky: linear-gradient(
+    180deg,
+    oklch(0.22 0.02 255) 0%,
+    oklch(0.18 0.02 255) 100%
+  );
+  --gradient-subtle: linear-gradient(
+    180deg,
+    oklch(0.22 0.02 255) 0%,
+    oklch(0.18 0.02 255) 100%
+  );
+  --gradient-hero: radial-gradient(
+    120% 80% at 50% 0%,
+    oklch(0.26 0.03 255) 0%,
+    oklch(0.2 0.025 255) 55%,
+    oklch(0.18 0.02 255) 100%
+  );
+}
+
+/* ---------- Tailwind theme mapping ----------
+   NOTE: This project uses Tailwind v3. The semantic color utilities
+   (bg-background, text-foreground, border-border, bg-primary, bg-card,
+   bg-accent, bg-sidebar, …) are mapped in tailwind.config.js under
+   theme.extend.colors, reading the CSS custom properties below.
+   The font-display / font-mono helpers are defined in @layer utilities. */
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings: "ss01", "cv01", "cv11";
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--font-mono);
+  }
+}
+
+/* ---------- Custom utilities ---------- */
+@layer utilities {
+  /* Hero — radial sky/pitch gradient on blue field */
+  .bg-hero-field {
+    background-image: var(--gradient-hero);
+  }
+
+  /* Subtle page gradient (blue band) */
+  .bg-subtle {
+    background-image: var(--gradient-subtle);
+  }
+
+  /* Primary blue gradient — buttons, accents */
+  .bg-primary-gradient {
+    background-image: var(--gradient-primary);
+  }
+
+  /* Text gradient on display headings */
+  .text-gradient-primary {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* White box-style menu items — navigation chips on blue background */
+  .nav-box {
+    background-color: oklch(1 0 0);
+    color: oklch(0.45 0.18 250);
+    border: 1px solid oklch(0.9 0.01 240);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-menu, 0 2px 8px -2px oklch(0.3 0.1 255 / 0.18));
+    transition: var(--transition-fast);
+  }
+  .nav-box:hover {
+    background-color: oklch(0.96 0.01 240);
+    box-shadow: 0 4px 12px -2px oklch(0.3 0.1 255 / 0.22);
+    transform: translateY(-1px);
+  }
+  .nav-box[data-active="true"],
+  .nav-box.is-active {
+    background-color: oklch(0.45 0.18 250);
+    color: oklch(0.99 0.005 240);
+    border-color: oklch(0.45 0.18 250);
+  }
+
+  /* Smooth transition helper */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-fast {
+    transition: var(--transition-fast);
+  }
+
+  /* Display font helper */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Mono stat / NISN helper */
+  .font-stat {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+}

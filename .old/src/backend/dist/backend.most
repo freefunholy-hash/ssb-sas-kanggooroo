@@ -1,0 +1,190 @@
+// Version: 4.0.0
+type AccessControlState__201339279 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__386906547<Principal, UserRole__91647283>
+  };
+type BookingRequest__244989189 =
+  {
+    contact : Text;
+    createdAt : Time__30997584;
+    handled : Bool;
+    id : Nat;
+    message : Text;
+    name : Text;
+    preferredTime : Text;
+    service : Text
+  };
+type BookingRequest__531656094 =
+  {
+    contact : Text;
+    createdAt : Int;
+    handled : Bool;
+    id : Nat;
+    message : Text;
+    name : Text;
+    preferredTime : Text;
+    service : Text
+  };
+type BusinessInfo__1047905150 =
+  {
+    address : Text;
+    email : Text;
+    name : Text;
+    openingHours : [DayHours__699996344];
+    phone : Text;
+    tagline : Text
+  };
+type BusinessInfo__218565759 =
+  {
+    address : Text;
+    email : Text;
+    name : Text;
+    openingHours : [DayHours__465508174];
+    phone : Text;
+    tagline : Text
+  };
+type Data__265875254<K, V> = {var count : Nat__58649523; kvs : [var ?(K, V)]};
+type DayHours__465508174 = {days : Text; hours : Text};
+type DayHours__699996344 = {days : Text; hours : Text};
+type DocumentType__1002676260 = {#Akta; #Ijazah; #KK};
+type DocumentType__1005173460 = {#Akta; #Ijazah; #KK};
+type Document__344758705 =
+  {
+    fileName : Text;
+    fileReference : FileReference__348439493;
+    tipe : DocumentType__1005173460
+  };
+type Document__525170404 =
+  {
+    fileName : Text;
+    fileReference : FileReference__1062118991;
+    tipe : DocumentType__1002676260
+  };
+type ExternalBlob__220559234 = Blob;
+type FileReference__1062118991 = ExternalBlob__220559234;
+type FileReference__348439493 = Blob;
+type GalleryImage__206015177 = {caption : Text; id : Nat; url : Text};
+type GalleryImage__596546865 = {caption : Text; id : Nat; url : Text};
+type Int__616954475 = Int;
+type Int__895066125 = Int__616954475;
+type Internal__161573640<K, V> =
+  {children : [var ?Node__430031793<K, V>]; data : Data__265875254<K, V>};
+type Leaf__1045638083<K, V> = {data : Data__265875254<K, V>};
+type Map__13625999<K, V> =
+  {var root : Node__430031793<K, V>; var size : Nat__58649523};
+type Map__386906547<K, V> = Map__670138087<K, V>;
+type Map__670138087<K, V> = Map__13625999<K, V>;
+type MedicalRecord__162639460 =
+  {
+    alergi : Text;
+    golonganDarah : Text;
+    kondisiKhusus : Text;
+    riwayatCedera : Text
+  };
+type MedicalRecord__900605855 =
+  {
+    alergi : Text;
+    golonganDarah : Text;
+    kondisiKhusus : Text;
+    riwayatCedera : Text
+  };
+type Nat__58649523 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__547210969 =
+  {
+    accessControlState : AccessControlState__201339279;
+    nextId : {var nextPlayerId : Nat};
+    players : Map__386906547<Nat, Player__52684135>
+  };
+type Node__430031793<K, V> =
+  {#internal : Internal__161573640<K, V>; #leaf : Leaf__1045638083<K, V>};
+type OldActor__1020235230 =
+  {
+    accessControlState : AccessControlState__201339279;
+    bookingRequests : Map__386906547<Nat, BookingRequest__531656094>;
+    businessInfo : BusinessInfo__1047905150;
+    gallery : [GalleryImage__206015177];
+    var nextRequestId : Nat;
+    services : [Service__774948436];
+    team : [TeamMember__890319790];
+    testimonials : [Testimonial__520072937]
+  };
+type PlayerStats__570127644 = {assist : Nat; gol : Nat; pertandingan : Nat};
+type PlayerStats__574684176 = {assist : Nat; gol : Nat; pertandingan : Nat};
+type Player__52684135 =
+  {
+    alamat : Text;
+    dokumen : [Document__344758705];
+    foto : FileReference__348439493;
+    id : Nat;
+    kontak : Text;
+    namaLengkap : Text;
+    nisn : Text;
+    nomorPunggung : Nat;
+    posisi : Position__916094339;
+    riwayatMedis : MedicalRecord__162639460;
+    statistik : PlayerStats__574684176;
+    tanggalLahir : Text;
+    timestamp : Int
+  };
+type Player__57096395 =
+  {
+    alamat : Text;
+    dokumen : [Document__525170404];
+    foto : FileReference__1062118991;
+    id : Nat;
+    kontak : Text;
+    namaLengkap : Text;
+    nisn : Text;
+    nomorPunggung : Nat;
+    posisi : Position__1032961655;
+    riwayatMedis : MedicalRecord__900605855;
+    statistik : PlayerStats__570127644;
+    tanggalLahir : Text;
+    timestamp : Timestamp__611433068
+  };
+type Position__1032961655 = {#DF; #FW; #GK; #MF};
+type Position__916094339 = {#DF; #FW; #GK; #MF};
+type Service__1054196247 =
+  {description : Text; duration : Text; id : Nat; name : Text; price : Text};
+type Service__774948436 =
+  {description : Text; duration : Text; id : Nat; name : Text; price : Text};
+type TeamMember__355003584 =
+  {bio : Text; id : Nat; name : Text; photo : Text; role : Text};
+type TeamMember__890319790 =
+  {bio : Text; id : Nat; name : Text; photo : Text; role : Text};
+type Testimonial__180620276 = {author : Text; id : Nat; quote : Text};
+type Testimonial__520072937 = {author : Text; id : Nat; quote : Text};
+type Time__1031799312 = Int__895066125;
+type Time__30997584 = Time__1031799312;
+type Timestamp__611433068 = Time__30997584;
+type UserRole__91647283 = {#admin; #guest; #user};
+{
+  "20250101_000000_Init" :
+    {} ->
+      {
+        accessControlState : AccessControlState__201339279;
+        bookingRequests : Map__386906547<Nat, BookingRequest__244989189>;
+        businessInfo : BusinessInfo__218565759;
+        gallery : [GalleryImage__596546865];
+        var nextRequestId : Nat;
+        services : [Service__1054196247];
+        team : [TeamMember__355003584];
+        testimonials : [Testimonial__180620276]
+      };
+  "20260814_000000" : (old : OldActor__1020235230) -> NewActor__547210969
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__386906547<Principal, UserRole__91647283>
+    };
+  stable nextId : {var nextPlayerId : Nat};
+  stable players :
+    {
+      var root : Node__430031793<Nat, Player__57096395>;
+      var size : Nat__58649523
+    }
+};

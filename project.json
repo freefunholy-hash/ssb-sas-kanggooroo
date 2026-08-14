@@ -1,0 +1,20 @@
+{
+  "overview": "Football academy player registry for SSB Sas Kanggooroo with player cards, search, registration, admin management, and PDF profiles.",
+  "features": [
+    "Player registry with profile cards (photo, position, NISN, stats, medical, documents)",
+    "Live search and position filter (All, GK, DF, MF, FW)",
+    "Open public player registration form with document upload",
+    "Total player count and position distribution statistics",
+    "Admin dashboard with edit/delete (Internet Identity login)",
+    "Backend-processed PDF profile download"
+  ],
+  "category": "productivity",
+  "tags": [
+    "football",
+    "player-registry",
+    "academy",
+    "admin-dashboard",
+    "pdf"
+  ],
+  "last_updated": "2026-08-14T02:02:19.088Z"
+}
